@@ -1,5 +1,8 @@
+'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -12,10 +15,17 @@ export default function page() {
         <div className="container sm:text-2xl text-xl font-medium">
 
 
-          <h2 className="animate__rubberBand animate__rubberBand animate__delay-2s sm:text-7xl text-5xl font-semibold sm:mb-16 mb-8 text-center">
-            Rincón Mágico Ghibli</h2>
-
-
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01]
+            }}
+          >
+            <h2 className="sm:text-7xl text-5xl font-semibold  capitalize sm:mb-16 mb-8 text-center">Rincón Mágico Ghibli</h2>
+          </motion.div>
 
           {/* Otros elementos, si los hay */}
         </div>
@@ -23,4 +33,5 @@ export default function page() {
     </main>
   );
 }
+
 
