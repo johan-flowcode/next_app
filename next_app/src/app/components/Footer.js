@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Logo from './img/totorologo.png'
+import LogoF from './img/totorologo.png'
 
 
 
@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           {/* Logo e imagen en el footer */}
           <div className="flex items-center">
-            <Image src={Logo} width={90} height={90} alt="FooterLogo" />
+            <Image src={LogoF} width={90} height={90} alt="FooterLogo" />
             <span className="text-2xl font-semibold whitespace-nowrap text-white ml-2">Ghibli</span>
           </div>
 
