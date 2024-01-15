@@ -1,0 +1,38 @@
+
+'use client'
+import React from 'react';
+import Link from 'next/link';
+import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
+
+export default function Movie({ movie }) {
+  const { id, image, title,original_title_romanised, release_date, rt_score, running_time } = movie;
+
+  return (
+    <Card shadow="sm" isPressable>
+      <CardBody className="overflow-visible p-0">
+      <Link href={`/movies/${id}`}>
+        <Image
+          shadow="sm"
+          radius="lg"
+          width="100%"
+          alt={title}
+          className="w-full object-cover h-[140px]"
+          src={image}
+        />
+        </Link>
+      </CardBody>
+      <CardFooter className="text-small justify-between">
+        <div>
+          <b>{title}</b>
+          <p className="text-default-500">{original_title_romanised}</p>
+        </div>
+        <div>
+          <p>Release: {release_date}</p>
+          <p>Score: {rt_score}</p>
+          <p>Runtime: {running_time} min</p>
+        </div>
+      </CardFooter>
+      
+    </Card>
+  );
+}
