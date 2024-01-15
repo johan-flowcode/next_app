@@ -1,26 +1,24 @@
-
+'use client';
 import Image from 'next/image';
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
-import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
-const getMovie = async id => {
-  const res = await fetch('https://ghibliapi.vercel.app/films/<id>' ,+ id, {
-    next: {
-      revalidate: 60
-    }
-  });
 
-  if (!res.ok) {
-    notFound();
+export default function MovieDetails({ movie, error }) {
+
+  if (!movie || error) {
+    return (
+      <main className="text-center sm:pt-32 pt-40">
+        <h2 className="sm:text-4xl text-2xl font-medium">{error || 'Movie not found'}</h2>
+        <p className="mt-4 sm:text-xl text-base">
+          Go back to the
+          <Link href="/" className="ml-1 font-semibold underline">
+            Home
+          </Link>
+        </p>
+      </main>
+    );
   }
-
-  return res.json();
-};
-
-export default async function MovieDetails({ params }) {
-  const { id } = params;
-
-  const movie = await getMovie(id);
 
   const {
     movie_banner,
@@ -67,4 +65,6 @@ export default async function MovieDetails({ params }) {
     </Card>
   );
 }
+
+
 

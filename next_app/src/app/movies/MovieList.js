@@ -1,5 +1,5 @@
 
-import notFound from '../not-found';
+
 import Movie from './Movie';
 
 const getMovies = async () => {
@@ -10,7 +10,7 @@ const getMovies = async () => {
   });
 
   if (!res.ok) {
-    notFound();
+    throw new Error('Failed to fetch the movie');
   }
 
   return res.json();

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
 
 export default function Movie({ movie }) {
-  const { id, image, title,original_title_romanised, release_date, rt_score, running_time } = movie;
+  const { id, image, title,original_title_romanised, release_date, running_time } = movie;
 
   return (
     <Card shadow="sm" isPressable>
@@ -28,7 +28,6 @@ export default function Movie({ movie }) {
         </div>
         <div>
           <p>Release: {release_date}</p>
-          <p>Score: {rt_score}</p>
           <p>Runtime: {running_time} min</p>
         </div>
       </CardFooter>
