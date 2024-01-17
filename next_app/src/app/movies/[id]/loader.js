@@ -1,7 +1,7 @@
 
 
+import MovieDetails from './page.js';
 
-// src/app/movies/[id]/loader.js
 export async function loader({ params }) {
     try {
         const res = await fetch(`https://ghibliapi.vercel.app/films/${params.id}`);
@@ -17,3 +17,4 @@ export async function loader({ params }) {
         return { props: { movie: null, error: 'Movie not found' } };
     }
 }
+

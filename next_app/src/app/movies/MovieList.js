@@ -21,7 +21,7 @@ export default async function MovieList() {
   const movies = await getMovies();
 
   return (
-    <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+    <div className="container  md:grid-cols-2 grid-cols-1 gap-6">
       {movies && movies.map(movie => <Movie key={movie.id} movie={movie}></Movie>)}
     </div>
   );

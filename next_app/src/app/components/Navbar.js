@@ -4,9 +4,37 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useDarkMode } from './DarkModeContext';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Logo from './img/totorologo.png';
 
 export default function Navbar() {
+  const { darkMode, setDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('home');
+    } else {
+      document.body.classList.add('home');
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+  
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30
+  };
+
+  const handleVariants = {
+    dark: { x: 25 },  // Ajusta según el tamaño de tu interruptor
+    light: { x: 0 }
+  };
+
   return (
     <Disclosure as="nav" className="bg-blue-300">
       {({ open }) => (
@@ -45,6 +73,14 @@ export default function Navbar() {
                   </Link>
                   {/* Puedes agregar más enlaces aquí */}
                 </div>
+              </div>
+              <div className="switch" onClick={toggleDarkMode}>
+                <motion.div
+                  className="handle"
+                  variants={handleVariants}
+                  animate={darkMode ? 'dark' : 'light'}
+                  transition={spring}
+                />
               </div>
             </div>
           </div>
