@@ -1,6 +1,7 @@
 
 
 
+// src/app/movies/[id]/loader.js
 export async function loader({ params }) {
     try {
         const res = await fetch(`https://ghibliapi.vercel.app/films/${params.id}`);
@@ -8,7 +9,6 @@ export async function loader({ params }) {
             throw new Error('Failed to fetch the movie');
         }
         const movie = await res.json();
-        console.log (movie);
         return {
             props: { movie }
         };

@@ -1,4 +1,4 @@
-'use client';
+
 import Image from 'next/image';
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import Link from 'next/link';
@@ -64,7 +64,7 @@ export default function MovieDetails({ movie, error }) {
       </div>
     </Card>
   );
-}
+};
 
 
 
