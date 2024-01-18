@@ -1,6 +1,4 @@
-
-
-import MovieDetails from './page.js';
+'use client'
 
 export async function loader({ params }) {
     try {

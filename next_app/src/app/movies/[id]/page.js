@@ -1,4 +1,4 @@
-
+'use client'
 import Image from 'next/image';
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import Link from 'next/link';
@@ -36,13 +36,13 @@ export default function MovieDetails({ movie, error }) {
   return (
     <Card className="py-4">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        
+
         <p className="text-tiny uppercase font-bold">{title}</p>
         <small className="text-default-500">{original_title}</small>
         <h4 className="font-bold text-large">{original_title_romanised}</h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
-      
+
         <Image
           alt={title}
           className="object-cover rounded-xl"
